@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import test from './routes/testRoute.js';
 dotenv.config()
 
 // Variables
@@ -14,6 +15,9 @@ const database = process.env.MONGO_URI;
 app.use((express.json({extended: true})))
 app.use((express.urlencoded({ extended: true})))
 app.use((cors()));
+
+// Routes
+app.use('/tests', test)
 
 // MDB connexion
 mongoose.connect(database, { useNewUrlParser: true, useUnifiedTopology: true })
