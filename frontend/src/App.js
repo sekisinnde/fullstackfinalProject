@@ -7,7 +7,7 @@ function App() {
     <div>
       <Router>
       <Routes>
-        <Route path='/tests' element={<Navbar/>}/>
+        <Route path='/' element={<Navbar/>}/>
       </Routes>
       </Router>
     </div>
