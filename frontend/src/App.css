@@ -1,8 +1,60 @@
 .imgOumar {
+  display: flex;
+  justify-content: center;
   width: 200px;
+  width: 350px;
+  height: 200px;
+  
 }
 
 .aboutUs {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 30px;
+  
+
 }
+.main{
+  padding-top: 10px;
+  display:flex;
+  flex-direction: column;
+
+}
+.article1{ 
+  display: flex;
+  justify-content: right;
+  
+  
+}
+.article2{
+  display: flex;
+  justify-content: left;
+  border-radius: 30px;
+
+}
+.para{
+  border-radius: 30px;
+}
+
+.footer {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  flex: content;
+  width: 100%;
+  background-color:rgb(0, 55, 128);
+  color: white;
+  text-align: center;
+  margin-right: 10px;
+ 
+}
+
+.scroll{
+  display: flex;
+  justify-content:space-around;
+  overflow:scroll; 
+  width:900px; 
+  height:900px;
+   border:2px solid blue;
+  
+} 
