@@ -5,7 +5,8 @@ import Footer from './components/Footer';
 import ConnexionForm from './components/ConnexionForm';
 import InscriptionForm from './components/InscriptionForm';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import AboutUs from './components/AboutUs';
+
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/aboutus' element={<AboutUs/>}/>
         <Route path='/connexion' element={<ConnexionForm/>}/>
         <Route path='/inscription' element={<InscriptionForm/>}/>
+        <Route path='/homepage' element={<HomePage/>}/>
       </Routes>
         <Footer/>
       </Router>
