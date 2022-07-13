@@ -5,7 +5,6 @@ import Footer from './components/Footer';
 import ConnexionForm from './components/ConnexionForm';
 import InscriptionForm from './components/InscriptionForm';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-
 import HomePage from './components/HomePage';
 
 function App() {
