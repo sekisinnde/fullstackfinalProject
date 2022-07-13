@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useNavigate } from "react-router";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // function Copyright(props) {
@@ -29,17 +30,62 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
 export default function InscriptionForm() {
+  const [form, setForm] = useState({
+    email: '',
+    firstname: '',
+    lastname: '',
+    password: '',
+    age: '',
+    adressNumber: '',
+    adress: '',
+    phoneNumber: '',
 
-const handleSubmit = (event) => {
-event.preventDefault();
-const data = new FormData(event.currentTarget);
+  });
+  const navigate = useNavigate();
 
-console.log({
-    email: data.get('email'),
-    password: data.get('password'),
+  function upDateFOrm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value }
+    })
+  }
+  async function submitForm(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    upDateFOrm()
+
+
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+
+    const newUser = { ...form };
+    console.log(newUser);
+
+    await fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .catch(error => {
+        window.alert(error);
+        return;
+      });
+
+    setForm({   email: '',
+    firstname: '',
+    lastname: '',
+    password: '',
+    password2: '',
+    age: '',
+    adressNumber: '',
+    adress: '',
+    phoneNumber: '',
 });
-
-};
+    navigate("/");
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -55,7 +101,7 @@ console.log({
           <Typography component="h1" variant="h5">
             Inscription
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box component="form" noValidate onSubmit={submitForm} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
