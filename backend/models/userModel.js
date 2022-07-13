@@ -4,11 +4,10 @@ const userSchema = new mongoose.Schema({
   email: String,
   firstName: String,
   lastName: String,
-  age: Date(),
+  age: String,
   password: String,
-  adressNumber: Number,
   adress: String,
-  phoneNumber: Number
+  phoneNumber: String
 })
 
 const User = mongoose.model('user', userSchema);

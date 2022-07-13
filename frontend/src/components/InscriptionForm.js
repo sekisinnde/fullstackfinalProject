@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -30,14 +30,40 @@ const theme = createTheme();
 
 export default function InscriptionForm() {
 
-const handleSubmit = (event) => {
-event.preventDefault();
-const data = new FormData(event.currentTarget);
-
-console.log({
-    email: data.get('email'),
-    password: data.get('password'),
+    const [form, setForm] = useState({
+        email: "",
+        firstName: "",
+        lastName: "",
+        age: "",
+        password: "",
+        adress: "",
+        phoneNumber: ""
 });
+
+
+      function updateForm(value) {
+        return setForm((prev) => {
+          return { ...prev, ...value };
+        });
+      }
+
+const handleSubmit = (e) => {
+e.preventDefault();
+let data = {...form}
+fetch("http://localhost:5000/users/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({data}),
+      })
+        .then(() => {
+          alert("vous etes enregistré");
+        })
+        .catch((error) => {
+          window.alert(error);
+          return;
+        });
 
 };
 
@@ -66,6 +92,7 @@ console.log({
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={(e) => updateForm({ firstname: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -76,6 +103,7 @@ console.log({
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={(e) => updateForm({ lastName: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -86,6 +114,7 @@ console.log({
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={(e) => updateForm({ email: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,17 +126,7 @@ console.log({
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="passwordconfirmation"
-                  label="Password confirmation"
-                  type="password"
-                  id="password2"
-                  autoComplete="new-password"
+                  onChange={(e) => updateForm({ password: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -117,16 +136,8 @@ console.log({
                   name="age"
                   label=""
                   type="date"
-                  id="password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="adressnumber"
-                  label="Adress number"
-                  id="adress"
+                  id="age"
+                  onChange={(e) => updateForm({ age: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -136,6 +147,7 @@ console.log({
                   name="adress"
                   label="Adress"
                   id="adress"
+                  onChange={(e) => updateForm({ adress: e.target.value })}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -144,7 +156,8 @@ console.log({
                   fullWidth
                   name="phone"
                   label="Phone number"
-                  id="adress"
+                  id="phone"
+                  onChange={(e) => updateForm({ phone: e.target.value })}
                 />
               </Grid>
             </Grid>
@@ -169,36 +182,3 @@ console.log({
     </ThemeProvider>
   );
 }
-
-// import React from 'react';
-
-// const Inscription = () => {
-
-//     return (
-//         <div>
-//             <form className='inscription'>
-//             <label for='email'>Email:</label>
-//             <input name='email'></input>
-//             <label for='firstname'>Firstname</label>
-//             <input name='firstname'></input>
-//             <label for='lastname'>Lastname:</label>
-//             <input name='lastname'></input>
-//             <label for='password'>Password:</label>
-//             <input name='password'></input>
-//             <label for='passwordconfirmation'>Reconfirm password:</label>
-//             <input name='passwordconfirmation'></input>
-//             <label for='age'>Age:</label>
-//             <input name='age'></input>
-//             <label for='adressnumber'>Adress number:</label>
-//             <input name='adressnumber'></input>
-//             <label for='adress'>Adress:</label>
-//             <input name='adress'></input>
-//             <label for='number'>Phone number:</label>
-//             <input name='number'></input>
-//             <button type="submit" value="Submit">Submit inscription</button>
-//             </form>
-//         </div>
-//     )
-// }
-
-// export default Inscription;
