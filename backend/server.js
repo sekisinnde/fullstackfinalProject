@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import test from './routes/testRoute.js';
+import user from './routes/testRoute.js';
 dotenv.config()
 
 // Variables
@@ -17,7 +17,7 @@ app.use((express.urlencoded({ extended: true})))
 app.use((cors()));
 
 // Routes
-app.use('/tests', test)
+app.use('/users', user)
 
 // MDB connexion
 mongoose.connect(database, { useNewUrlParser: true, useUnifiedTopology: true })

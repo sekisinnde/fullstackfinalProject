@@ -1,4 +1,46 @@
-.App {
+.images{
+ display: flex;
+ justify-content: space-around;
+ flex-direction: row;
+}
+
+.names {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.description{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+}
+
+.navbar {
+  background-color: grey;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer {
+  background-color: purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 40px;
+  padding-top: 20px;
+}
+
+.inscription {
+  display: block;
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +77,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
