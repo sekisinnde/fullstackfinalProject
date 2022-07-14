@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to='/marketplace'><Button color="inherit">MarketPlace</Button></Link>
           <Button color="inherit">Forum</Button>  
           <Link to='/'><img src={img} style={{height:"8vh", marginLeft: '52vh'}}/></Link>
-          <Link to='/connexion'><Button color="inherit" sx={{ml: '82vh'}}>Connexion</Button></Link>       
+          <Link to='/connexion' style={{color:'white'}}><Button color="inherit" sx={{ml: '82vh'}}>Connexion</Button></Link>       
         </Toolbar>
         
       </AppBar>
