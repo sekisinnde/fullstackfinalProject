@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom';
 
  const Footer = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
         <>blablabla</>
       </AppBar>     
