@@ -3,14 +3,27 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 const MarketPlace = () => {
+    
+    const [data, setData] = useState([]);
+    const [search, setSearch] = useState([]);
 
     useEffect(() => {
         fetchData();
     })
 
-    let [data, setData] = useState([]);
-    let [userSearch, setSearch] = useState([]);
+    const searchHandler = (e) => {
+        let value = e.target.value;
+        setSearch(value);
+    }
     
+    const filteredData = data.filter((elem) => {
+        if(search === ''){
+            return elem;
+        }else if (search === elem.email){
+            return elem;
+        } 
+        })
+
     const fetchData = async () => {
         try {
             const res = await fetch("http://localhost:5000/users");
@@ -24,19 +37,11 @@ const MarketPlace = () => {
     return (
         <div className="marketplace">
             <Box sx={{ width: 500, maxWidth: '100%' }}>
-                <TextField fullWidth onChange={(e) => setSearch(e.target.value)} label="Search for specific product" id="search" />
-                {data
-                .filter(toy => {
-                    if(userSearch === ''){
-                        return toy;
-                    }else if(toy.email.includes(userSearch)){
-                        return toy;
-                    }
+                <TextField fullWidth onChange={searchHandler} label="Search for specific product" id="search" />
+                <div>{filteredData.map((toy, index) => {
+                    return(<p key={index}>{toy.email}</p>)
                 })
-                .map((toy) => {
-                    <p>{toy.email}</p>
-                })
-                }
+                }</div>
             </Box>
         </div>
     )
