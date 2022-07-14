@@ -1,4 +1,4 @@
-import User from "../models/UserModel.js";
+import User from "../models/userModel.js";
 
 export const getUsers =  async (req, res) => {
     try {
@@ -20,7 +20,14 @@ export const getOneUser = async (req, res) => {
 
 export const createUser = async (req, res) => {
     try {
-        const newUser = await User.create({ name: req.body.name, description: req.body.description, price: req.body.price, capacity: req.body.capacity, image:req.body.image, ageLimit: req.body.ageLimit })
+        const newUser = await User.create({
+            email: req.body.email,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            age: req.body.age,
+            password: req.body.password,
+            adress: req.body.adress,
+            phoneNumber: req.body.phoneNumber})
         res.status(200).json(newUser)
     } catch (error) {
         res.status(404).json({message: error.message })

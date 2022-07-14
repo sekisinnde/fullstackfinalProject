@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import img from '../logo512.png';
 import {Link} from 'react-router-dom';
 
-export default function ButtonAppBar() {
+const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -23,7 +23,7 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Button color="inherit">MarketPlace</Button>
+          <Link to='/marketplace'><Button color="inherit">MarketPlace</Button></Link>
           <Button color="inherit">Forum</Button>  
           <Link to='/'><img src={img} style={{height:"8vh", marginLeft: '52vh'}}/></Link>
           <Link to='/connexion'><Button color="inherit" sx={{ml: '82vh'}}>Connexion</Button></Link>       
@@ -35,21 +35,4 @@ export default function ButtonAppBar() {
   );
 }
 
-// import React, {useState, useEffect} from 'react';
-// import {Link} from 'react-router-dom';
-// import img from '../logo512.png';
-
-// const Navbar = () => {
-    
-//     return (
-//             <div  className="navbar">
-//             <p>MarketPlace</p>
-//             <p>Forum</p>
-//             <img className="logo" src={img}/>
-//             <p>Shopping Cart</p>
-//             <Link to='/connexion'>Connexion</Link>
-//             </div>
-//     )
-// }
-
-// export default Navbar;
+export default Navbar;
