@@ -22,22 +22,33 @@
 }
 
 .navbar {
-  background-color: grey;
+  height: 10vh;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #1976d2;
+  align-items: center;
 }
 
-.footer {
-  background-color: purple;
+.footer{
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 40px;
-  padding-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #1976d2;
+  margin-top: auto;
 }
 
 .inscription {
   display: block;
+}
+
+.form{
+  margin-right: 37%;
+  margin-left: 37%;
+  margin-top: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* .App {
