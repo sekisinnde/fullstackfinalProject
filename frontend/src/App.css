@@ -47,6 +47,23 @@
   margin-left: 37%;
   margin-top: 10vh;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: right;
+}
+.imgOumar{
+  width: 30vh;
+  height: 30vh;
+}
+.categories{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+.pagination{
+  display: flex;
   justify-content: center;
 }
+
+
+
+
