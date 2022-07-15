@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
-import { Box } from '@mui/system';
-
 
 function InscriptionForm() {
   

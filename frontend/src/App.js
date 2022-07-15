@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ConnexionForm from './components/ConnexionForm';
 import InscriptionForm from './components/InscriptionForm';
 import MarketPlace from './components/MarketPlace';
+import ShoppingCart from './components/ShoppingCart';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/connexion' element={<ConnexionForm/>} />
         <Route path='/inscription' element={<InscriptionForm/>} />
         <Route path='/marketplace' element={<MarketPlace/>} />
+        <Route path='/shoppingcart' element={<ShoppingCart/>} />
       </Routes>
         <Footer/>
       </Router>

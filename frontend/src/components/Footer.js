@@ -1,9 +1,13 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+import Button from  '@mui/material/Button';
 
  const Footer = () => {
   return (
     <div className='footer'>
-      <p>blablabla</p>
+      <p>Project Captsone</p>
+      <Button sx={{color:"white"}} component={Link} to='/aboutus'>About Us</Button>
+      <p>Tremplin FullStack 2022</p>
     </div>
   );
 }
