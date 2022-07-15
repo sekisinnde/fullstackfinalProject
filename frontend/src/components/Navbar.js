@@ -10,10 +10,10 @@ const Navbar = () => {
     <div className='navbar'>
             <MenuIcon />
           <IconButton/>
-          <Link to='/marketplace'><Button color="inherit">MarketPlace</Button></Link>
-          <Link to='/categories'><Button color="inherit">Forum</Button></Link>  
-          <Link to='/'><img src={img} style={{height:"8vh", marginLeft: '50vh'}}/></Link>
-          <Link to='/connexion'><Button variant="outlined" color="warning" sx={{ml: '82vh'}}>Connexion</Button></Link>       
+          <Button component={Link} to='/marketplace'color="inherit">MarketPlace</Button>
+          <Button component={Link} to='/categories' color="inherit">Forum</Button>  
+          <img component={Link} to='/' alt='logo' src={img} style={{height:"8vh", marginLeft: '50vh'}}/>
+          <Button component={Link} to='/connexion' variant="outlined" color="inherit" sx={{ml: '82vh', color:"white"}}>Connexion</Button>    
     </div>
   );
 }
