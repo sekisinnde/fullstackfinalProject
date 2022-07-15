@@ -21,9 +21,10 @@ function App() {
         <Route path='/users/:id' element={<Users/>}/>
         <Route path='/users' element={<Users/>}/>
         <Route path='/connexion' element={<ConnexionForm/>}/>
+        <Route path='/marketplace' element={<MarketPlace/>}/>
         <Route path='/inscription' element={<InscriptionForm/>}/>
-        <Route path='/categories' element={<Category/>}/>
-        <Route path="/categories/:id" element={<Category />} />
+        <Route path='/categories/' element={<Category/>}/>
+        <Route path="/category/:theme" element={<Category />} />
       </Routes>
         <Footer/>
       </Router>
