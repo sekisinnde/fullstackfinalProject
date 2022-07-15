@@ -1,156 +1,91 @@
-import React from 'react';
-
-const InscriptionForm = () => {
-
-    const [form, setForm] = useState({
-        email: "",
-        firstName: "",
-        lastName: "",
-        age: "",
-        password: "",
-        adress: "",
-        phoneNumber: ""
-});
+import React, {useState} from 'react';
+import { TextField } from '@mui/material';
+import Button from '@mui/material/Button';
+import { Box } from '@mui/system';
 
 
-      function updateForm(value) {
-        return setForm((prev) => {
-          return { ...prev, ...value };
-        });
+function InscriptionForm() {
+  
+    const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password,setPassword] = useState(null);
+    const [confirmPassword,setConfirmPassword] = useState(null);
+
+    const handleInputChange = (e) => {
+      const {id , value} = e.target;
+      if(id === "firstName"){
+          setFirstName(value);
+      }
+      if(id === "lastName"){
+          setLastName(value);
+      }
+      if(id === "email"){
+          setEmail(value);
+      }
+      if(id === "password"){
+          setPassword(value);
+      }
+      if(id === "confirmPassword"){
+          setConfirmPassword(value);
       }
 
-const handleSubmit = (e) => {
-e.preventDefault();
-let data = {...form}
-fetch("http://localhost:5000/users/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({data}),
-      })
-        .then(() => {
-          alert("vous etes enregistré");
-        })
-        .catch((error) => {
-          window.alert(error);
-          return;
-        });
+  }
 
-};
+  const handleSubmit = () => {
+    console.log(firstName, lastName, email, password, confirmPassword)
+  }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}>
-          <Typography component="h1" variant="h5">
-            Inscription
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="firstName"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                  onChange={(e) => updateForm({ firstname: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                  onChange={(e) => updateForm({ lastName: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  onChange={(e) => updateForm({ email: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="new-password"
-                  onChange={(e) => updateForm({ password: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="age"
-                  label=""
-                  type="date"
-                  id="age"
-                  onChange={(e) => updateForm({ age: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="adress"
-                  label="Adress"
-                  id="adress"
-                  onChange={(e) => updateForm({ adress: e.target.value })}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="phone"
-                  label="Phone number"
-                  id="phone"
-                  onChange={(e) => updateForm({ phone: e.target.value })}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="./connexion" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
-  );
+  return(
+    <div className="form">
+      <h1 className='signup'>Sign Up</h1>
+      <TextField
+          id="email"
+          label="Email"
+          type=""
+          autoComplete="current-email"
+          sx={{mb: "2vh", width: "100%"}}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="firstName"
+          label="First Name"
+          type=""
+          autoComplete="current-firstName"
+          sx={{mb: "2vh",mr: "3vh", width: "45%"}}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="lastName"
+          label="Last Name"
+          type=""
+          autoComplete="current-lastName"
+          sx={{mb: "2vh", ml:"2vh", width: "45%"}}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="password"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+          sx={{mb: "2vh", width:"100%"}}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="adress"
+          label="Adress"
+          type=""
+          autoComplete="current-adress"
+          sx={{mb: "2vh", width:"100%"}}
+          onChange={handleInputChange}
+        />
+        <Button 
+        onClick={handleSubmit}
+        variant="contained"
+        sx={{alignItems: "center", mb:"10vh"}}
+        >Register</Button>
+    </div>
+  )
 }
+
+export default InscriptionForm;
