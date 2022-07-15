@@ -16,24 +16,30 @@
   flex-direction: row;
 }
 
+.navbar {
+  height: 10vh;
+  background-color: #1976d2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center
+}
+
+.menu {
+  margin-left: 3vh;
+}
+
 .logo{
   height: 50px;
   width: 50px;
-}
-
-.navbar {
-  height: 10vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #1976d2;
-  align-items: center;
+  margin-right: 15vh;
 }
 
 .footer{
+  color: white;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #1976d2;
   margin-top: auto;
 }
@@ -47,23 +53,6 @@
   margin-left: 37%;
   margin-top: 10vh;
   display: flex;
-  justify-content: right;
-}
-.imgOumar{
-  width: 30vh;
-  height: 30vh;
-}
-.categories{
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 50px;
-}
-.pagination{
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
-
-
-
-

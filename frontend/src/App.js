@@ -6,6 +6,7 @@ import ConnexionForm from './components/ConnexionForm';
 import Users from './components/Users'
 import InscriptionForm from './components/InscriptionForm';
 import MarketPlace from './components/MarketPlace';
+import ShoppingCart from './components/ShoppingCart';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import HomePage from './components/HomePage';
 import Category from './components/Categories';
@@ -25,6 +26,7 @@ function App() {
         <Route path='/inscription' element={<InscriptionForm/>}/>
         <Route path='/categories/' element={<Category/>}/>
         <Route path="/category/:theme" element={<Category />} />
+        <Route path="/shoppingcart" element={<ShoppingCart />} />
       </Routes>
         <Footer/>
       </Router>
