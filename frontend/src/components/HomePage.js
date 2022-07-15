@@ -28,8 +28,6 @@ const HomePage =()=>{
              Il est développé par la société américaine Tiger Electronics, de 1998 
             à 2001 et par la société Hasbro de 2005 à 2007 et de 2012 à maintenant.</p>
         <img src={furbywebp } alt='Oumar' className='imgOumar' />     
-        
-
         </div>
         </div>
     )
