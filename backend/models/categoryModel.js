@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const categorySchema = new mongoose.Schema({
-  gen: String
+  name: String
 })
 
 const Category = mongoose.model('user', categorySchema);
