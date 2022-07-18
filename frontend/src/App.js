@@ -7,8 +7,12 @@ import Users from './components/Users'
 import InscriptionForm from './components/InscriptionForm';
 import MarketPlace from './components/MarketPlace';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import HomePage from './components/HomePage';
-import Category from './components/Categories';
+import HomePage from './components/InfoPage';
+import CategoryPage from './components/CategoryPage';
+import Forum from './components/Forum';
+import GenItems from './components/GenItems';
+import Chart from './components/Conversation';
+
 
 function App() {
   return (
@@ -17,14 +21,16 @@ function App() {
         <Navbar/>
       <Routes>
         <Route path='/aboutus' element={<AboutUs/>}/>
-        <Route path='/homepage' element={<HomePage/>}/>
+        <Route path='/infopage' element={<InfoPage/>}/>
         <Route path='/users/:id' element={<Users/>}/>
         <Route path='/users' element={<Users/>}/>
         <Route path='/connexion' element={<ConnexionForm/>}/>
         <Route path='/marketplace' element={<MarketPlace/>}/>
         <Route path='/inscription' element={<InscriptionForm/>}/>
-        <Route path='/categories/' element={<Category/>}/>
-        <Route path="/category/:theme" element={<Category />} />
+        <Route path='/forum' element={<Forum/>}/>
+        <Route path="/category/:id" element={<CategoryPage/>} />
+        <Route path="/genitems/" element={<GenItems />} />
+        <Route path="/conversation" element={<Conversation/>} />
       </Routes>
         <Footer/>
       </Router>

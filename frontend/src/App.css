@@ -61,17 +61,24 @@
   width: 30vh;
   height: 30vh;
 }
-.categories{
+/* .categories{
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 50px;
-}
+} */
 .pagination{
   display: flex;
-  justify-content: center;
+  justify-content: row;
+}
+.image{
+  display: flex;
+ justify-content: space-around;
+ flex-direction: row
 }
 
-
-
+.Forum {
+  font-family: sans-serif;
+  text-align: center;
+}
 
