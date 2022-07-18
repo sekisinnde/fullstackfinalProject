@@ -48,11 +48,36 @@
   display: block;
 }
 
-.form{
-  margin-right: 37%;
-  margin-left: 37%;
-  margin-top: 10vh;
+.artcle1{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
+.artcle2{
+  display: flex;
+  justify-content: right;
+}
+.imgOumar{
+  width: 30vh;
+  height: 30vh;
+}
+/* .categories{
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+} */
+.pagination{
+  display: flex;
+  justify-content: row;
+}
+.image{
+  display: flex;
+ justify-content: space-around;
+ flex-direction: row
+}
+
+.Forum {
+  font-family: sans-serif;
+  text-align: center;
+}
+
