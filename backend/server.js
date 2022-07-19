@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import user from './routes/userRoute.js';
+import conversation from './routes/conversationRoute.js'
 dotenv.config()
 
 // Variables
@@ -18,6 +19,7 @@ app.use((express.urlencoded({ extended: true})))
 
 // Routes
 app.use('/users', user)
+app.use('/conversations', conversation)
 
 // MDB connexion
 mongoose.connect(database, { useNewUrlParser: true, useUnifiedTopology: true })
