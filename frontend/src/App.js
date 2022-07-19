@@ -8,11 +8,10 @@ import InscriptionForm from './components/InscriptionForm';
 import MarketPlace from './components/MarketPlace';
 import ShoppingCart from './components/ShoppingCart';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import HomePage from './components/InfoPage';
+import InfoPage from './components/InfoPage';
 import CategoryPage from './components/CategoryPage';
 import Forum from './components/Forum';
-import GenItems from './components/GenItems';
-import Chart from './components/Conversation';
+import Conversation from './components/Conversation';
 
 
 function App() {
@@ -30,8 +29,7 @@ function App() {
         <Route path='/inscription' element={<InscriptionForm/>}/>
         <Route path='/forum' element={<Forum/>}/>
         <Route path="/category/:id" element={<CategoryPage/>} />
-        <Route path="/genitems/" element={<GenItems />} />
-        <Route path="/conversation" element={<Conversation/>} />
+        <Route path="/conversations" element={<Conversation/>} />
       </Routes>
         <Footer/>
       </Router>

@@ -76,8 +76,15 @@
  flex-direction: row
 }
 
-.Forum {
-  font-family: sans-serif;
-  text-align: center;
+.post{
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  
+}
+.forum {
+  margin-left: 50vh;
+  margin-right: 50vh;
+  margin-top: 5vh;
 }
 

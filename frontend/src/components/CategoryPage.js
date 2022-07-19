@@ -53,7 +53,7 @@ const CategoryPage = () => {
   const [category, setCategory] = useState({})
 
   useEffect(() => {
-    fetch(`http://localhost:5000/categories/${params.id}`)
+    fetch(`http://localhost:5000/category/${params.id}`)
       .then((res) => {
         console.log('conn_api')
         return res.json()

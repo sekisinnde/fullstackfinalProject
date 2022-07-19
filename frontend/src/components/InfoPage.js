@@ -14,9 +14,6 @@ import furbywebp from '../images/webimg.webp'
 const dataPages = ['Homepage','aboutus','categories', 'users', 'marketplace']
 const length = dataPages.length
 
-for (let i=0; i<length ;i++){
-    console.log(dataPages[i]);
-}
 
 const InfoPage =()=>{
 

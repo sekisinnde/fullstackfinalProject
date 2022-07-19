@@ -4,7 +4,11 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import user from './routes/userRoute.js';
+<<<<<<< HEAD
 import conversation from './routes/conversationRoute.js';
+=======
+import conversation from './routes/conversationRoute.js'
+>>>>>>> oumar
 dotenv.config()
 
 // Variables
