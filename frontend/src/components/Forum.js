@@ -26,7 +26,7 @@ export default function Forum() {
         .filter(post => post.title.toLowerCase().includes(search.toLowerCase()))
         .map((post) => {
           return (
-            <div key={post._id}>
+            <div className='posts' key={post._id}>
               <p>{post.author[0]}</p>
               <p>{post.title}</p>
               <p>{post.date[0]}</p>

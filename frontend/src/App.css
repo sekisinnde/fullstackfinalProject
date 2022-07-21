@@ -41,7 +41,10 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   background-color: #1976d2;
-  margin-top: auto;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .inscription {
@@ -82,4 +85,36 @@
 .conversation:nth-child(odd) {
   display: flex;
   justify-content: left;
+}
+
+.cart{
+  margin-right: 30vh;
+  margin-left: 30vh;
+}
+
+.categories{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.something{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.forum{
+  margin-right: 50vh;
+  margin-left: 50vh;
+  margin-top: 5vh;
+}
+
+.posts{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  border: solid 0.5vh black;
+  margin-top: 2vh;
 }
