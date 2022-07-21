@@ -19,7 +19,7 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <Button component={Link} to='/marketplace' sx={{color:"white"}}>MarketPlace</Button>
-          <Button component={Link} to='/categories' sx={{color:"white"}}>Forum</Button>
+          <Button component={Link} to='/forum' sx={{color:"white"}}>Forum</Button>
         </div>
         <div>
           <img className='logo' component={Link} to='/' alt='logo' src={img} style={{height:"8vh"}}/>

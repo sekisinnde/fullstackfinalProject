@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
+import {Link} from 'react-router-dom';
 
 const MarketPlace = () => {
     let [data, setData] = useState([]);
@@ -15,8 +16,6 @@ const MarketPlace = () => {
             .then((res) => {setData(res)});
         }
 
-    console.log(data.title)
-
     return (
         <div className="marketplace">
                 <TextField fullWidth onChange={e => setSearch(e.target.value)} label="Search for specific product" id="search" />
@@ -28,6 +27,7 @@ const MarketPlace = () => {
                     <div key={index} >
                     <p id='product'>{toy.title}</p>
                     <img src={toy.url}></img>
+                    <Link to={`/marketplace/${toy._id}`}>Show more</Link>
                     </div>
                     )
                 })}

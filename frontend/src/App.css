@@ -73,3 +73,13 @@
   display: flex;
   justify-content: center;
 }
+
+.conversation:nth-child(even) {
+  display: flex;
+  justify-content: right;
+}
+
+.conversation:nth-child(odd) {
+  display: flex;
+  justify-content: left;
+}

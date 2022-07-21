@@ -6,6 +6,9 @@ import ConnexionForm from './components/ConnexionForm';
 import InscriptionForm from './components/InscriptionForm';
 import MarketPlace from './components/MarketPlace';
 import ShoppingCart from './components/ShoppingCart';
+import ConversationPage from './components/ConversationPage';
+import Forum from './components/Forum';
+import Toy from './components/Toy';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -14,11 +17,14 @@ function App() {
       <Router>
         <Navbar/>
       <Routes>
-        <Route path='/aboutus' element={<AboutUs/>} />
+        <Route path='/infopage' element={<AboutUs/>} />
         <Route path='/connexion' element={<ConnexionForm/>} />
         <Route path='/inscription' element={<InscriptionForm/>} />
-        <Route path='/toys' element={<MarketPlace/>} />
+        <Route path='/marketplace' element={<MarketPlace/>} />
+        <Route path='/marketplace/:id' element={<Toy/>} />
         <Route path='/shoppingcart' element={<ShoppingCart/>} />
+        <Route path='/forum' element={<Forum/>}/>
+        <Route path="/forum/:id" element={<ConversationPage/>} />
       </Routes>
         <Footer/>
       </Router>
