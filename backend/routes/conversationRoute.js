@@ -5,7 +5,7 @@ import {createMessage, createConversation, getConversations, getOneConversation,
 router.get('/', getConversations);
 router.get('/:id', getOneConversation);
 router.post('/', createConversation);
-router.post('/:id/create', createMessage);
+router.post('/:id', createMessage);
 router.put('/:id', updateConversation);
 router.delete('/:id', deleteConversation);
 

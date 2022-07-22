@@ -5,6 +5,6 @@ const toySchema = new mongoose.Schema({
   url: String
 })
 
-const Toy = mongoose.model('toy', toySchema);
+const Toy = mongoose.model('Toy', toySchema);
 
 export default Toy;

@@ -1,13 +1,12 @@
 import mongoose from 'mongoose';
 
 const conversationSchema = new mongoose.Schema({
-    title: String,
-    category: String,
-    author: Array,
-    contenu: Array,
-    date: Array
+        creator: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+        title: String,
+        category: String,
+        messages: [{type: mongoose.Schema.Types.ObjectId, ref:'Message'}]
 })
 
-const Conversation = mongoose.model('conversation', conversationSchema);
+const Conversation = mongoose.model('Conversation', conversationSchema);
 
 export default Conversation;
