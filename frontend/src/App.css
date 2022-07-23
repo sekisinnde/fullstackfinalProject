@@ -1,3 +1,7 @@
+* {
+  color: #5bb6ad;
+}
+
 .images{
  display: flex;
  justify-content: space-around;
@@ -18,7 +22,7 @@
 
 .navbar {
   height: 10vh;
-  background-color: #1976d2;
+  background-color: #383b7e;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -30,9 +34,24 @@
 }
 
 .logo{
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 70px;
   margin-right: 15vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .footer{
@@ -40,7 +59,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: #1976d2;
+  background-color: #383b7e;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -117,4 +136,20 @@
   align-items: center;
   border: solid 0.5vh black;
   margin-top: 2vh;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  background-color: #c34e82;
+}
+
+.jp {
+  margin-top: 3vh;
+  padding-bottom: 5vh;
+}
+
+.images{
+  height: 50vh;
+  width: 50vh;
 }

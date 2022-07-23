@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import img from '../logo512.png';
+import img from '../pink-furby.png';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
           <Button component={Link} to='/forum' sx={{color:"white"}}>Forum</Button>
         </div>
         <div>
-          <img className='logo' component={Link} to='/' alt='logo' src={img} style={{height:"8vh"}}/>
+          <Link to='/home'><img className='logo' alt='logo' src={img} style={{height:"8vh"}}/></Link>
         </div>  
         <div>
         <IconButton component={Link} to='/shoppingcart' aria-label="add to shopping cart" sx={{color:"White"}}>

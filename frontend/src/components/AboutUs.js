@@ -1,12 +1,13 @@
 import React from 'react';
-import img from '../logo512.png';
+import imgNico from '../Nicolas.jpg';
+import imgOumar from '../Oumar.jpg';
 
 const AboutUs = () => {
     return (
             <div className='aboutus'>
                 <div className='images'>
-                    <img src={img}/>
-                    <img src={img}/>
+                    <img src={imgOumar}/>
+                    <img src={imgNico}/>
                 </div>
                 <div className="names">
                     <h3>Oumar</h3>

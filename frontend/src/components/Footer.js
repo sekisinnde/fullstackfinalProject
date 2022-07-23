@@ -6,7 +6,7 @@ import Button from  '@mui/material/Button';
   return (
     <div className='footer'>
       <p>Project Captsone</p>
-      <Button sx={{color:"white"}} component={Link} to='/aboutus'>About Us</Button>
+      <Button sx={{color:"white"}} component={Link} to='/infopage'>About Us</Button>
       <p>Tremplin FullStack 2022</p>
     </div>
   );

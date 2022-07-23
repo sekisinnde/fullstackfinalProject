@@ -9,6 +9,7 @@ import ShoppingCart from './components/ShoppingCart';
 import ConversationPage from './components/ConversationPage';
 import Forum from './components/Forum';
 import Toy from './components/Toy';
+import Home from './components/Home'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Navbar/>
       <Routes>
+        <Route path='/home' element={<Home/>} />
         <Route path='/infopage' element={<AboutUs/>} />
         <Route path='/connexion' element={<ConnexionForm/>} />
         <Route path='/inscription' element={<InscriptionForm/>} />
