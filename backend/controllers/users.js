@@ -9,10 +9,14 @@ export const getUsers =  async (req, res) => {
     }  
 }
 
-export const getOneUser = async (req, res) => {
+export const verifyUser = async (req, res) => {
     try {
         const myUser = await User.findOne({email: req.params.email})
-        res.status(200).json(myUser);
+        res.json({hi})
+        if(myUser.email == req.body.email & myUser.password == req.body.password){
+            res.json({exists: true})
+        }
+            else{res.json({message: "Wrong email or password"})}
     } catch (error) {
         res.status(404).json({message: error.message })
     } 

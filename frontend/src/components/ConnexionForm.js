@@ -1,25 +1,42 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import TextField from "@mui/material/TextField";
 import Button from '@mui/material/Button';
 
 const ConnexionForm = () => {
 
-  const [email, setEmail] = useState(null);
-  const [password,setPassword] = useState(null);
+  const [form, setForm] = useState({
+    email: "",
+    password: ""
+  })
 
-  const handleInputChange = (e) => {
-    const {id , value} = e.target;
-    if(id === "email"){
-        setEmail(value);
-    }
-    if(id === "password"){
-        setPassword(value);
-    }
+  const navigate = useNavigate();
+
+  function updateForm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value };
+    })
   }
 
-  const handleSubmit = () => {
-    console.log(email, password)
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const newUser = { ...form };
+
+    await fetch("http://localhost:5000/users/verify", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then(res => console.log(res.data))
+      .catch(error => window.alert(error))
+      .then(setForm({
+        email: "",
+        password: ""
+      }))
+      navigate("/forum")
   }
 
   return (
@@ -31,7 +48,7 @@ const ConnexionForm = () => {
           type="email"
           autoComplete="current-email"
           sx={{mb: "2vh", width: "78%", backgroundColor: "white"}}
-          onChange = {(e) => handleInputChange(e)}
+          onChange={(e) => updateForm({ email: e.target.value })}
         />
         <TextField
           id="password"
@@ -39,7 +56,7 @@ const ConnexionForm = () => {
           type="password"
           autoComplete="current-password"
           sx={{mb: "3vh", width: "78%", backgroundColor: "white"}}
-          onChange = {(e) => handleInputChange(e)}
+          onChange={(e) => updateForm({ password: e.target.value })}
         />
         <Button 
         component={Link} 

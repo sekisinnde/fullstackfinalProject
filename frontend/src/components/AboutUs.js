@@ -11,15 +11,16 @@ const AboutUs = () => {
                 </div>
                 <div className="names">
                     <div>
-                    <h3>Oumar Sekisinnde</h3>
+                    <h3>Oumar Sekisinde</h3>
                     <a href='https://github.com/sekisinnde'><h4>@sekisinnde</h4></a>
                     </div>
                     <div>
                     <h3>Nicolas Caroff</h3>
-                    <a href='https://github.com/karoffski'><h4>@Karoffski</h4></a>
+                    <a href='https://github.com/karoffski'><h4>@karoffski</h4></a>
                     </div>
-                </div><br></br><br></br>
-                <p className='description'>Projet réalisé pour la soutenance finale de la formation tremplin auprès de chez Matrice.</p>
+                </div><br></br>
+                <p className='description'>Projet réalisé pour la soutenance finale </p>
+                <p className='description'>de la formation tremplin auprès de chez Matrice.</p>
             </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
+import Button from '@mui/material/Button';
 
 const Toy = () => {
     
@@ -21,10 +22,13 @@ const Toy = () => {
     
     return (
         <div className='toypage'>
-        <p className='title'>{toy.title}</p>
-        <img className='toypic' src={toy.url}/>
-        <p>{toy.description}</p>
-        <p>{toy.price}</p>
+        <p className='title'>{toy.title} - {toy.author}</p>
+        <img className='toypic' alt={toy.title} src={toy.img}/>
+        <p>{toy.price}€</p>
+        <Button 
+        sx={{width: "25%", height: "8vh",color: "white", backgroundColor: '#64AB65',"&:hover": {backgroundColor: "#54B1A7"}}}
+        >
+        Ajouter au panier</Button>
         </div>
     )
 }

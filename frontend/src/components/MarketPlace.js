@@ -28,9 +28,9 @@ const MarketPlace = () => {
                     return(
                     <div id='product' key={index} >
                         <p>{toy.title}</p>
-                        <img src={toy.url}></img>
-                        <p>$Toy price</p>
-                        <Link to={`/marketplace/${toy._id}`}><IconButton sx={{color: "blue"}}><ControlPointIcon/></IconButton></Link>
+                        <img className='toyimage' alt={toy.title} src={toy.img}></img>
+                        <p>{toy.price}€</p>
+                        <IconButton component={Link} to={`/marketplace/${toy._id}`} sx={{color: "black"}}><ControlPointIcon/></IconButton>
                     </div>
                     )
                 })}

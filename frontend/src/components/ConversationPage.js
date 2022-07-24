@@ -6,15 +6,31 @@ import Button from '@mui/material/Button';
 const ConversationPage = () => {
 
     const [conversation, setConversation] = useState({messages: []});
-    const {id} = useParams()
+    const [content, setContent] = useState({content: ""});
+    const {id} = useParams();
 
     useEffect(() => {
         getConversations();
     }, [])
 
-    useEffect(() => {
-        console.log(conversation.messages);
-    }, [conversation])
+    async function handleSubmit(e) {
+        e.preventDefault();
+    
+        const newUser = { ...content };
+    
+        await fetch(`http://localhost:5000/conversations/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newUser),
+        })
+          .catch(error => window.alert(error))
+          .then(setContent({
+            content: ""
+          }))
+          window.location.reload(false)
+      }
 
     const getConversations =  () => {
         fetch(`http://localhost:5000/conversations/${id}`)
@@ -27,9 +43,9 @@ const ConversationPage = () => {
          {conversation.messages.map((message) => {
             return(
                 <div key={message._id} className='conversation'>
-                    <p>Author</p>
+                    <p>{message.author}</p>
                     <p >{message.content}</p>
-                    <p>Date</p>
+                    <p>{message.date.slice(11, 19)}</p>
                 </div>
             )
          })}
@@ -40,10 +56,12 @@ const ConversationPage = () => {
          label="Message"
          type=""
          sx={{mb: "3vh", width: "70%", backgroundColor: "white"}}
+         onChange={(e) => setContent({ content: e.target.value })}
          ></TextField><br></br>
         <Button
         variant="contained"
         sx={{ height: "7vh", mb: "10vh", backgroundColor: "#A891C1", "&:hover": { backgroundColor: "#383B7E" } }}
+        onClick={handleSubmit}
         >Upload</Button>
         </div>
         </div>

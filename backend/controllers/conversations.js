@@ -47,8 +47,12 @@ export const createMessage = async (req, res) => {
             content: req.body.content,
             date: new Date()
         })
-        
-        res.status(200).json(newMessage)
+
+        const conversation = await Conversation.findById({_id: req.params.id})
+        conversation.messages.push(newMessage._id)
+        conversation.save()
+
+        res.status(200).json(conversation)
     } catch (error) {
         res.status(404).json({message: error.message })
     }    

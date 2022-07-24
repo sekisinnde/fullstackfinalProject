@@ -2,7 +2,9 @@ import mongoose from 'mongoose';
 
 const toySchema = new mongoose.Schema({
   title: String,
-  url: String
+  author: String,
+  img: String,
+  price: String
 })
 
 const Toy = mongoose.model('Toy', toySchema);
