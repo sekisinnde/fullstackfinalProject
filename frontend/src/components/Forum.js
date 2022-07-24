@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import TextField from '@mui/material/TextField';
 import {Link} from 'react-router-dom';
 import Button from '@mui/material/Button';
+import EastIcon from '@mui/icons-material/East';
+import IconButton from '@mui/material/IconButton';
 
 export default function Forum() {
 
@@ -30,7 +32,7 @@ export default function Forum() {
             <p>{post.title}</p>
             <p>{post.category}</p>
             <p>{post.messages[0].date.slice(0, 10)}</p>
-            <Button component={Link} to={`/forum/${post._id}`}>Plus</Button>
+            <Button component={Link} to={`/forum/${post._id}`}><IconButton sx={{color: "white"}}><EastIcon/></IconButton></Button>
           </div>
         )
       })}

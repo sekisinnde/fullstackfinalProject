@@ -24,13 +24,13 @@ const ConnexionForm = () => {
 
   return (
     <div className="form">
-      <h1 className='signup'>Sign In</h1>
+      <h1  className='signup'>Sign In</h1>
       <TextField
           id="email"
           label="Email"
           type="email"
           autoComplete="current-email"
-          sx={{mb: "2vh", width: "78%"}}
+          sx={{mb: "2vh", width: "78%", backgroundColor: "white"}}
           onChange = {(e) => handleInputChange(e)}
         />
         <TextField
@@ -38,19 +38,18 @@ const ConnexionForm = () => {
           label="Password"
           type="password"
           autoComplete="current-password"
-          sx={{mb: "2vh", width: "78%"}}
+          sx={{mb: "3vh", width: "78%", backgroundColor: "white"}}
           onChange = {(e) => handleInputChange(e)}
         />
-
         <Button 
         component={Link} 
         to='/inscription' 
         variant="contained"
-        sx={{mb:"10vh", mr:"2vh", width:"35%", height:"7vh", backgroundColor: '#F25A96',"&:hover": {backgroundColor: "#54B1A7"}}}
+        sx={{mb:"5vh", mr:"2vh", width:"35%", height:"7vh", backgroundColor: '#F25A96',"&:hover": {backgroundColor: "#54B1A7"}}}
         >Register</Button>
         <Button 
         variant="contained"
-        sx={{mb:"10vh", ml:"2vh", width:"35%", backgroundColor: '#64AB65',"&:hover": {backgroundColor: "#54B1A7"}}}
+        sx={{mb:"5vh", ml:"2vh", width:"35%", backgroundColor: '#64AB65',"&:hover": {backgroundColor: "#54B1A7"}}}
         onClick={handleSubmit}
         >Connect</Button>
     </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import {Link} from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 
 const MarketPlace = () => {
     let [data, setData] = useState([]);
@@ -25,10 +27,10 @@ const MarketPlace = () => {
                 .map((toy, index) => {
                     return(
                     <div id='product' key={index} >
-                    <p>{toy.title}</p>
-                    <img src={toy.url}></img>
-                    <p>$Toy price</p>
-                    <Link to={`/marketplace/${toy._id}`}>+</Link>
+                        <p>{toy.title}</p>
+                        <img src={toy.url}></img>
+                        <p>$Toy price</p>
+                        <Link to={`/marketplace/${toy._id}`}><IconButton sx={{color: "blue"}}><ControlPointIcon/></IconButton></Link>
                     </div>
                     )
                 })}

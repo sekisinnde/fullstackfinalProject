@@ -30,7 +30,7 @@ const Navbar = () => {
         {display && <Button component={Link} to='/forum' sx={{ color: "white", "&:hover": { color: "#5bb6ad" }}}>Forum</Button>}
       </div>
       <div>
-        {!display && <Link to='/home'><img className='logo' alt='logo' src={img} style={{ height: "9vh", marginLeft: "15vh"}} /></Link>}
+        {!display && <Link to='/home'><img className='logo' alt='logo' src={img} style={{ height: "9vh", marginLeft: "20vh"}} /></Link>}
       </div>
       <div>
         <IconButton component={Link} to='/shoppingcart' aria-label="add to shopping cart" sx={{ color: "white", mr: "2vh", "&:hover": { color: "#5bb6ad" } }}>

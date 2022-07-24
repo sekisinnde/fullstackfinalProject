@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 const InscriptionForm = () => {
 
@@ -11,6 +12,8 @@ const InscriptionForm = () => {
     password: "",
     adress: ""
   })
+
+  const navigate = useNavigate();
 
   function updateForm(value) {
     return setForm((prev) => {
@@ -38,6 +41,7 @@ const InscriptionForm = () => {
         password: "",
         adress: ""
       }))
+      navigate("/forum")
   }
 
   return (
@@ -48,7 +52,7 @@ const InscriptionForm = () => {
         label="Email"
         type=""
         autoComplete="current-email"
-        sx={{ mb: "2vh", width: "100%" }}
+        sx={{ mb: "2vh", width: "80%" }}
         onChange={(e) => updateForm({ email: e.target.value })}
       />
       <TextField
@@ -56,7 +60,7 @@ const InscriptionForm = () => {
         label="First Name"
         type=""
         autoComplete="current-firstName"
-        sx={{ mb: "2vh", mr: "3vh", width: "45%" }}
+        sx={{ mb: "2vh", mr: "3vh", width: "35%" }}
         onChange={(e) => updateForm({ firstName: e.target.value })}
       />
       <TextField
@@ -64,7 +68,7 @@ const InscriptionForm = () => {
         label="Last Name"
         type=""
         autoComplete="current-lastName"
-        sx={{ mb: "2vh", ml: "2vh", width: "45%" }}
+        sx={{ mb: "2vh", ml: "2vh", width: "35%" }}
         onChange={(e) => updateForm({ lastName: e.target.value })}
       />
       <TextField
@@ -72,7 +76,7 @@ const InscriptionForm = () => {
         label="Password"
         type="password"
         autoComplete="current-password"
-        sx={{ mb: "2vh", width: "100%" }}
+        sx={{ mb: "2vh", width: "80%" }}
         onChange={(e) => updateForm({ password: e.target.value })}
       />
       <TextField
@@ -80,12 +84,12 @@ const InscriptionForm = () => {
         label="Adress"
         type=""
         autoComplete="current-adress"
-        sx={{ mb: "2vh", width: "100%" }}
+        sx={{ mb: "2vh", width: "80%" }}
         onChange={(e) => updateForm({ adress: e.target.value })}
       />
       <Button
         variant="contained"
-        sx={{ height: "7vh", mb: "10vh", backgroundColor: "#A891C1", "&:hover": { backgroundColor: "#54B1A7" } }}
+        sx={{ height: "7vh", mb: "3vh", backgroundColor: "#A891C1", "&:hover": { backgroundColor: "#54B1A7" } }}
         onClick={handleSubmit}
       >Register</Button>
     </div>

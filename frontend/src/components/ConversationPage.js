@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useParams } from 'react-router-dom';
+import { TextField } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const ConversationPage = () => {
 
@@ -31,6 +33,19 @@ const ConversationPage = () => {
                 </div>
             )
          })}
+        <div className='uploadmessage'><br></br>
+         <p style={{color: 'white'}}>Please state your message</p><br></br>
+         <TextField
+         id="message"
+         label="Message"
+         type=""
+         sx={{mb: "3vh", width: "70%", backgroundColor: "white"}}
+         ></TextField><br></br>
+        <Button
+        variant="contained"
+        sx={{ height: "7vh", mb: "10vh", backgroundColor: "#A891C1", "&:hover": { backgroundColor: "#383B7E" } }}
+        >Upload</Button>
+        </div>
         </div>
     )
     

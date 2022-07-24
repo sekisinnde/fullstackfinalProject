@@ -20,9 +20,11 @@ const Toy = () => {
     }
     
     return (
-        <div>
-        <p>{toy.title}</p>
-        <img src={toy.url}/>
+        <div className='toypage'>
+        <p className='title'>{toy.title}</p>
+        <img className='toypic' src={toy.url}/>
+        <p>{toy.description}</p>
+        <p>{toy.price}</p>
         </div>
     )
 }
