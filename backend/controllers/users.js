@@ -24,10 +24,9 @@ export const createUser = async (req, res) => {
             email: req.body.email,
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            age: req.body.age,
             password: req.body.password,
-            adress: req.body.adress,
-            phoneNumber: req.body.phoneNumber})
+            adress: req.body.adress
+        })
         res.status(200).json(newUser)
     } catch (error) {
         res.status(404).json({message: error.message })

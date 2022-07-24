@@ -6,14 +6,20 @@ const AboutUs = () => {
     return (
             <div className='aboutus'>
                 <div className='images'>
-                    <img src={imgOumar}/>
-                    <img src={imgNico}/>
+                    <img className='image' alt='Oumar' src={imgOumar}/>
+                    <img className='image' alt='Nicolas' src={imgNico}/>
                 </div>
                 <div className="names">
-                    <h3>Oumar</h3>
-                    <h3>Nicolas</h3>
+                    <div>
+                    <h3>Oumar Sekisinde</h3>
+                    <a href='https://github.com/sekisinnde'><h4>@sekisinnde</h4></a>
+                    </div>
+                    <div>
+                    <h3>Nicolas Caroff</h3>
+                    <a href='https://github.com/karoffski'><h4>@Karoffski</h4></a>
+                    </div>
                 </div>
-                <p className='description'>We are presenting our project</p>
+                <p className='description'>Projet réalisé pour la soutenance finale de la formation Tremplin.</p>
             </div>
     )
 }

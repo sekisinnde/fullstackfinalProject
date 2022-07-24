@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import TextField from '@mui/material/TextField';
 import {Link} from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 export default function Forum() {
 
@@ -25,11 +26,11 @@ export default function Forum() {
       .filter(post => post.title.toLowerCase().includes(search.toLowerCase()))
       .map((post, index) => {
         return (
-          <div key={index}>
+          <div className='posts' key={index}>
             <p>{post.title}</p>
             <p>{post.category}</p>
-            <p>{post.messages[0].date}</p>
-            <Link to={`/forum/${post._id}`}>Details</Link>
+            <p>{post.messages[0].date.slice(0, 10)}</p>
+            <Button component={Link} to={`/forum/${post._id}`}>Plus</Button>
           </div>
         )
       })}

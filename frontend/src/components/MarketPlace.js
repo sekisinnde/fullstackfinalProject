@@ -24,10 +24,11 @@ const MarketPlace = () => {
                 .filter(toy => toy.title.toLowerCase().includes(search.toLowerCase()))
                 .map((toy, index) => {
                     return(
-                    <div key={index} >
-                    <p id='product'>{toy.title}</p>
+                    <div id='product' key={index} >
+                    <p>{toy.title}</p>
                     <img src={toy.url}></img>
-                    <Link to={`/marketplace/${toy._id}`}>Show more</Link>
+                    <p>$Toy price</p>
+                    <Link to={`/marketplace/${toy._id}`}>+</Link>
                     </div>
                     )
                 })}

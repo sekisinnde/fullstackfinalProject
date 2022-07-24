@@ -23,7 +23,13 @@ const ConversationPage = () => {
     return(
         <div>
          {conversation.messages.map((message) => {
-            return(<p key={message._id}>{message.content}</p>)
+            return(
+                <div key={message._id} className='conversation'>
+                    <p>Author</p>
+                    <p >{message.content}</p>
+                    <p>Date</p>
+                </div>
+            )
          })}
         </div>
     )

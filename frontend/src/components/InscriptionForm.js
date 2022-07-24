@@ -1,87 +1,93 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 
-function InscriptionForm() {
-  
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [password,setPassword] = useState(null);
-    const [confirmPassword,setConfirmPassword] = useState(null);
+const InscriptionForm = () => {
 
-    const handleInputChange = (e) => {
-      const {id , value} = e.target;
-      if(id === "firstName"){
-          setFirstName(value);
-      }
-      if(id === "lastName"){
-          setLastName(value);
-      }
-      if(id === "email"){
-          setEmail(value);
-      }
-      if(id === "password"){
-          setPassword(value);
-      }
-      if(id === "confirmPassword"){
-          setConfirmPassword(value);
-      }
+  const [form, setForm] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+    adress: ""
+  })
 
+  function updateForm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value };
+    })
   }
 
-  const handleSubmit = () => {
-    console.log(firstName, lastName, email, password, confirmPassword)
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const newUser = { ...form };
+
+    await fetch("http://localhost:5000/users", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+      .catch(error => window.alert(error))
+      .then(setForm({
+        email: "",
+        firstName: "",
+        lastName: "",
+        password: "",
+        adress: ""
+      }))
   }
 
-  return(
+  return (
     <div className="form">
       <h1 className='signup'>Sign Up</h1>
       <TextField
-          id="email"
-          label="Email"
-          type=""
-          autoComplete="current-email"
-          sx={{mb: "2vh", width: "100%"}}
-          onChange={handleInputChange}
-        />
-        <TextField
-          id="firstName"
-          label="First Name"
-          type=""
-          autoComplete="current-firstName"
-          sx={{mb: "2vh",mr: "3vh", width: "45%"}}
-          onChange={handleInputChange}
-        />
-        <TextField
-          id="lastName"
-          label="Last Name"
-          type=""
-          autoComplete="current-lastName"
-          sx={{mb: "2vh", ml:"2vh", width: "45%"}}
-          onChange={handleInputChange}
-        />
-        <TextField
-          id="password"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          sx={{mb: "2vh", width:"100%"}}
-          onChange={handleInputChange}
-        />
-        <TextField
-          id="adress"
-          label="Adress"
-          type=""
-          autoComplete="current-adress"
-          sx={{mb: "2vh", width:"100%"}}
-          onChange={handleInputChange}
-        />
-        <Button 
-        onClick={handleSubmit}
+        id="email"
+        label="Email"
+        type=""
+        autoComplete="current-email"
+        sx={{ mb: "2vh", width: "100%" }}
+        onChange={(e) => updateForm({ email: e.target.value })}
+      />
+      <TextField
+        id="firstName"
+        label="First Name"
+        type=""
+        autoComplete="current-firstName"
+        sx={{ mb: "2vh", mr: "3vh", width: "45%" }}
+        onChange={(e) => updateForm({ firstName: e.target.value })}
+      />
+      <TextField
+        id="lastName"
+        label="Last Name"
+        type=""
+        autoComplete="current-lastName"
+        sx={{ mb: "2vh", ml: "2vh", width: "45%" }}
+        onChange={(e) => updateForm({ lastName: e.target.value })}
+      />
+      <TextField
+        id="password"
+        label="Password"
+        type="password"
+        autoComplete="current-password"
+        sx={{ mb: "2vh", width: "100%" }}
+        onChange={(e) => updateForm({ password: e.target.value })}
+      />
+      <TextField
+        id="adress"
+        label="Adress"
+        type=""
+        autoComplete="current-adress"
+        sx={{ mb: "2vh", width: "100%" }}
+        onChange={(e) => updateForm({ adress: e.target.value })}
+      />
+      <Button
         variant="contained"
-        sx={{alignItems: "center", mb:"10vh"}}
-        >Register</Button>
+        sx={{ height: "7vh", mb: "10vh", backgroundColor: "#A891C1", "&:hover": { backgroundColor: "#54B1A7" } }}
+        onClick={handleSubmit}
+      >Register</Button>
     </div>
   )
 }
