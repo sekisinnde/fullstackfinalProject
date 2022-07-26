@@ -241,3 +241,13 @@
   width: 50vh;
   height: 50vh;
 }
+.cart1{
+  display: flex;
+  justify-content: center;
+}
+.cart2{
+  display: flex;
+  justify-content: center;
+  width: 50vh;
+  height: 50vh;
+}
