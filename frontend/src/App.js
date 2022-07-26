@@ -11,7 +11,9 @@ import ConversationPage from './components/ConversationPage';
 import Forum from './components/Forum';
 import Toy from './components/Toy';
 import Home from './components/Home'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes,Navigate, Route} from 'react-router-dom';
+
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
         <Route path='/shoppingcart' element={<ShoppingCart/>} />
         <Route path='/forum' element={<Forum/>}/>
         <Route path="/forum/:id" element={<ConversationPage/>} />
+        <Route path="/pagenotfound" element={<PageNotFound/>} />
+        <Route path="*" element={<Navigate to ="/pagenotfound" />}/>
+       
       </Routes>
         <Footer/>
       </Router>

@@ -1,8 +1,14 @@
 
 
-    import React from 'react'
-    import { useEffect, useState } from "react";
-    import { useParams } from 'react-router-dom';
+import React from 'react'
+import { useEffect, useState } from "react";
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 
     const ShoppingCart = () => {
 
@@ -15,13 +21,22 @@
     {product: "Bumble Bee", qty: 6,price:800 +'$'}
     ];
 
-    let params = useParams();
-    const [category, setCategory] = useState({})
+    
+    const [product ,setProduct] = useState(0);
+    const [qty, setQty] = useState(0);
+    const [price, setPrice] = useState(0);
+    const [value, setValue] =useState(0);
+
+    function handleChange(event) {
+        setProduct(event.target.value);
+        setQty(event.target.value);
+        setPrice(event.target.value);
+    }
 
     useEffect(() => {
-    fetch(`http://localhost:5000/cart/${params.id}`)
+    fetch(`http://localhost:5000/cart/`)
         .then((res) => {return res.json()})
-        .then((res) => {setCategory(res)})
+        .then((res) => {setProduct(res)})
     }, [])
 
     return(
@@ -29,15 +44,78 @@
     {itemsData.map((item, index) => {
     return(   
     <div className='cart2'>
-    <p>{item.product}</p> <br/>
-    <p>{item.qty}</p><br/>
-    <p>{item.price}</p><br/>
+    <p> {item.product}</p><br/>
+    <p> {item.qty}</p><br />
+    <p> {item.price}</p><br />
     </div>
     )})
     }
-
     </div>
-    )}
+    
+    );
+
+
+    // <ThemeProvider >
+    //         <CssBaseline />
+    //         Vous allez réserver ...
+    //         <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+    //             <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+    //                 <Select
+    //                     labelId="demo-select-small"
+    //                     id="demo-select-small"
+    //                     value={product}
+    //                     label="Product"
+    //                     onChange={handleChange}>
+    //                     <MenuItem value=""><em>None</em></MenuItem>
+    //                     </Select>
+                       
+    //                     <Select
+    //                     labelId="demo-select-small"
+    //                     id="demo-select-small"
+    //                     value={qty}
+    //                     label="Quantity"
+    //                     onChange={handleChange}>
+    //                     <MenuItem value=""><em>None</em></MenuItem>
+    //                     </Select>
+                        
+                        {/* <Select
+                        labelId="demo-select-small"
+                        id="demo-select-small"
+                        value={price}
+                        label="Price"
+                        onChange={handleChange}>
+                        <MenuItem value=""><em>None</em></MenuItem>
+                        </Select> */}
+                       
+                       
+                       
+                        {/* {itemsData.map((participant) => {
+                            
+                            return ( */}
+                        // <MenuItem value={participant.q}>{participant}</MenuItem>
+                        // <MenuItem value={participant}>{participant}</MenuItem>
+                        // <MenuItem value={participant}>{participant}</MenuItem>
+                        // <MenuItem value={participant.product}>{participant.product}</MenuItem>
+                        // )
+
+                        // })}
+                
+                    {/* <div>
+                        {tab.map((retourFrom) => {
+                            return <AddressForm />
+                        })}
+                        <Button type="submit" variant="contained" color="primary" onSubmit={handleSubmit}>
+                        Valider Reservation
+                        </Button>
+                    </div> */}
+                    
+                {/* </Paper>
+            </Container>
+         </ThemeProvider>
+    ); */}
+
+}
+
     export default ShoppingCart;
 
 
